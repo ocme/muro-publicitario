@@ -8,7 +8,8 @@
 body{
     font-family: Arial;
     text-align: center;
-    background: #f2f2f2;
+    background: #111;
+    color: white;
 }
 
 h1{
@@ -17,16 +18,20 @@ h1{
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(10, 80px);
-    gap: 5px;
+    grid-template-columns: repeat(20, 50px);
+    gap: 4px;
     justify-content: center;
 }
 
 .ad{
-    width: 80px;
-    height: 80px;
-    background: #ccc;
-    border: 1px solid #999;
+    width: 50px;
+    height: 50px;
+    background: #333;
+    border: 1px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
 }
 
 .ad img{
@@ -35,37 +40,52 @@ h1{
     object-fit: cover;
 }
 
+.available{
+    background: #1e1e1e;
+    color: #00ff88;
+    cursor: pointer;
+}
+
 .buy{
     display: inline-block;
-    margin-top: 20px;
-    padding: 15px 25px;
-    background: green;
-    color: white;
+    margin: 25px;
+    padding: 15px 30px;
+    background: #00ff88;
+    color: black;
     text-decoration: none;
     border-radius: 10px;
+    font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🔥 Anuncia tu negocio aquí 🔥</h1>
+<h1>🔥 Muro Publicitario 🔥</h1>
+<p>Compra tu espacio desde $5.000 COP</p>
 
 <div class="grid">
 
+<!-- EJEMPLOS OCUPADOS -->
 <a href="https://google.com" class="ad">
-<img src="https://via.placeholder.com/80">
+<img src="https://via.placeholder.com/50">
 </a>
 
-<div class="ad"></div>
-<div class="ad"></div>
-<div class="ad"></div>
-<div class="ad"></div>
-<div class="ad"></div>
-<div class="ad"></div>
-<div class="ad"></div>
-<div class="ad"></div>
-<div class="ad"></div>
+<a href="https://instagram.com" class="ad">
+<img src="https://via.placeholder.com/50">
+</a>
+
+<!-- ESPACIOS DISPONIBLES -->
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
+<div class="ad available">Disponible</div>
 
 </div>
 
