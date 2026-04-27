@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Muro Publicitario</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    background: #f2f2f2;
+}
+
+h1{
+    margin: 20px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(10, 80px);
+    gap: 5px;
+    justify-content: center;
+}
+
+.ad{
+    width: 80px;
+    height: 80px;
+    background: #ccc;
+    border: 1px solid #999;
+}
+
+.ad img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buy{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    background: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 Anuncia tu negocio aquí 🔥</h1>
+
+<div class="grid">
+
+<a href="https://google.com" class="ad">
+<img src="https://via.placeholder.com/80">
+</a>
+
+<div class="ad"></div>
+<div class="ad"></div>
+<div class="ad"></div>
+<div class="ad"></div>
+<div class="ad"></div>
+<div class="ad"></div>
+<div class="ad"></div>
+<div class="ad"></div>
+<div class="ad"></div>
+
+</div>
+
+<a class="buy" href="#">Comprar espacio</a>
+
+</body>
+</html>
