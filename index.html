@@ -109,20 +109,27 @@ h1{
     justify-content: center;
 }
 
-/* 🔥 PREVIEW PRO */
+/* 🔥 PREVIEW MODAL */
 .preview{
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     display: none;
-    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.7);
     z-index: 9999;
 }
 
 .preview img{
-    width: auto;
-    height: auto;
-    max-width: 80vw;
-    max-height: 80vh;
+    max-width: 90vw;
+    max-height: 90vh;
     object-fit: contain;
+
     border: 3px solid #00ff88;
     border-radius: 12px;
     background: black;
@@ -172,7 +179,7 @@ onclick="gtag('event','click_anuncio',{event_category:'ads'});">
 
 </div>
 
-<!-- PREVIEW -->
+<!-- PREVIEW MODAL -->
 <div class="preview" id="preview">
 <img id="preview-img">
 </div>
@@ -194,30 +201,19 @@ const previewImg = document.getElementById("preview-img");
 document.querySelectorAll(".ad img").forEach(img => {
 
     img.addEventListener("mouseenter", () => {
-        preview.style.display = "block";
+        preview.style.display = "flex";
         previewImg.src = img.src;
-    });
-
-    img.addEventListener("mousemove", (e) => {
-
-        const w = previewImg.offsetWidth;
-        const h = previewImg.offsetHeight;
-
-        let x = e.pageX + 20;
-        let y = e.pageY + 20;
-
-        // evitar que se salga
-        if (x + w > window.innerWidth) x = e.pageX - w - 20;
-        if (y + h > window.innerHeight) y = e.pageY - h - 20;
-
-        preview.style.left = x + "px";
-        preview.style.top = y + "px";
     });
 
     img.addEventListener("mouseleave", () => {
         preview.style.display = "none";
     });
 
+});
+
+// cerrar al hacer clic
+preview.addEventListener("click", () => {
+    preview.style.display = "none";
 });
 </script>
 
