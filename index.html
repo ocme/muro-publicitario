@@ -95,12 +95,9 @@ h1{
     height: 100px;
     background: #333;
     border: 1px solid #555;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    overflow: visible;
-    transition: transform 0.2s;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 /* IMAGEN */
@@ -108,29 +105,33 @@ h1{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
-}
-
-/* HOVER */
-.ad:hover{
-    transform: scale(1.1);
-    z-index: 2;
-}
-
-.ad:hover img{
-    transform: scale(2.2);
-    position: absolute;
-    top: -40px;
-    left: -40px;
-    z-index: 10;
-    border: 2px solid #00ff88;
-    background: black;
 }
 
 /* DISPONIBLE */
 .available{
     background: #1e1e1e;
     color: #00ff88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PREVIEW FLOTANTE */
+.preview{
+    position: fixed;
+    display: none;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.preview img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid #00ff88;
+    border-radius: 10px;
+    background: black;
+    box-shadow: 0 0 20px rgba(0,255,136,0.5);
 }
 
 </style>
@@ -138,7 +139,7 @@ h1{
 
 <body>
 
-<!-- BOTÓN WHATSAPP -->
+<!-- BOTÓN -->
 <a class="top-button"
 href="https://wa.me/573014207972?text=Hola%2C%20quiero%20comprar%20un%20espacio%20publicitario"
 target="_blank">
@@ -161,9 +162,9 @@ Empieza con bajo costo y prueba resultados reales.
 <div class="grid">
 
 <!-- ANUNCIO 1 -->
-<a href="https://wa.me/573014207972?text=Hola%2C%20,%20necesito%20un%20servicio%20" class="ad"
-onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'google'});">
-<img src="https://imgur.com/a/q3rVSKL">
+<a href="https://wa.me/573014207972" class="ad"
+onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'cliente1'});">
+<img src="https://i.imgur.com/DfUFSE1.jpeg">
 </a>
 
 <!-- ANUNCIO 2 -->
@@ -173,16 +174,12 @@ onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'instagr
 </a>
 
 <!-- ANUNCIO 3 -->
-<a href="https://instagram.com" class="ad"
-onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'cliente1'});">
-<img src="https://i.imgur.com/DfUFSE1.jpeg">
+<a href="https://google.com" class="ad"
+onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'google'});">
+<img src="https://via.placeholder.com/100">
 </a>
 
-<!-- ESPACIOS DISPONIBLES -->
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
+<!-- DISPONIBLES -->
 <div class="ad available">Disponible</div>
 <div class="ad available">Disponible</div>
 <div class="ad available">Disponible</div>
@@ -190,14 +187,42 @@ onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'cliente
 
 </div>
 
+<!-- PREVIEW -->
+<div class="preview" id="preview">
+<img id="preview-img">
+</div>
+
 <!-- CONTADOR SIMPLE -->
 <script>
 let visitas = localStorage.getItem("visitas") || 0;
 visitas++;
 localStorage.setItem("visitas", visitas);
-
 document.getElementById("visitas").innerText =
 "👀 Visitas a esta página: " + visitas;
+</script>
+
+<!-- SCRIPT PREVIEW -->
+<script>
+const preview = document.getElementById("preview");
+const previewImg = document.getElementById("preview-img");
+
+document.querySelectorAll(".ad img").forEach(img => {
+
+    img.addEventListener("mouseenter", () => {
+        preview.style.display = "block";
+        previewImg.src = img.src;
+    });
+
+    img.addEventListener("mousemove", (e) => {
+        preview.style.left = (e.pageX + 20) + "px";
+        preview.style.top = (e.pageY + 20) + "px";
+    });
+
+    img.addEventListener("mouseleave", () => {
+        preview.style.display = "none";
+    });
+
+});
 </script>
 
 </body>
