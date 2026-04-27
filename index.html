@@ -109,7 +109,7 @@ h1{
     justify-content: center;
 }
 
-/* 🔥 PREVIEW MEJORADO */
+/* 🔥 PREVIEW PRO */
 .preview{
     position: fixed;
     display: none;
@@ -120,9 +120,9 @@ h1{
 .preview img{
     width: auto;
     height: auto;
-    max-width: 500px;
-    max-height: 500px;
-    object-fit: contain; /* 🔥 muestra TODA la imagen */
+    max-width: 80vw;
+    max-height: 80vh;
+    object-fit: contain;
     border: 3px solid #00ff88;
     border-radius: 12px;
     background: black;
@@ -200,12 +200,15 @@ document.querySelectorAll(".ad img").forEach(img => {
 
     img.addEventListener("mousemove", (e) => {
 
+        const w = previewImg.offsetWidth;
+        const h = previewImg.offsetHeight;
+
         let x = e.pageX + 20;
         let y = e.pageY + 20;
 
-        // evitar que se salga de pantalla
-        if (x + 520 > window.innerWidth) x = e.pageX - 520;
-        if (y + 520 > window.innerHeight) y = e.pageY - 520;
+        // evitar que se salga
+        if (x + w > window.innerWidth) x = e.pageX - w - 20;
+        if (y + h > window.innerHeight) y = e.pageY - h - 20;
 
         preview.style.left = x + "px";
         preview.style.top = y + "px";
