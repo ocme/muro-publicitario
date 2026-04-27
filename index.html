@@ -109,7 +109,7 @@ h1{
     justify-content: center;
 }
 
-/* PREVIEW */
+/* PREVIEW (CLICK GRANDE) */
 .preview{
     position: fixed;
     top: 0;
@@ -133,6 +133,28 @@ h1{
     border: 3px solid #00ff88;
     border-radius: 12px;
     background: black;
+}
+
+/* HOVER PREVIEW (tipo Amazon) */
+.hover-preview{
+    position: fixed;
+    pointer-events: none;
+    display: none;
+
+    width: 220px;
+    height: 220px;
+
+    border: 2px solid #00ff88;
+    border-radius: 10px;
+    background: black;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.hover-preview img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 </style>
@@ -177,9 +199,14 @@ Directorio visual donde cada anuncio lleva tráfico directo a tu negocio.
 
 </div>
 
-<!-- PREVIEW -->
+<!-- PREVIEW GRANDE -->
 <div class="preview" id="preview">
 <img id="preview-img">
+</div>
+
+<!-- HOVER PREVIEW -->
+<div class="hover-preview" id="hoverPreview">
+    <img id="hoverImg">
 </div>
 
 <!-- VISITAS -->
@@ -198,12 +225,15 @@ const previewImg = document.getElementById("preview-img");
 
 let currentLink = "";
 
-// abrir preview
+// abrir preview (CLICK)
 document.querySelectorAll(".ad").forEach(ad => {
 
     ad.addEventListener("click", () => {
+        const img = ad.querySelector("img");
+        if(!img) return;
+
         preview.style.display = "flex";
-        previewImg.src = ad.querySelector("img").src;
+        previewImg.src = img.src;
         currentLink = ad.getAttribute("data-link");
     });
 
@@ -221,6 +251,31 @@ preview.addEventListener("click", (e) => {
     if(e.target === preview){
         preview.style.display = "none";
     }
+});
+
+// ===== HOVER PREVIEW =====
+const hoverPreview = document.getElementById("hoverPreview");
+const hoverImg = document.getElementById("hoverImg");
+
+document.querySelectorAll(".ad").forEach(ad => {
+
+    const img = ad.querySelector("img");
+    if(!img) return;
+
+    ad.addEventListener("mouseenter", () => {
+        hoverPreview.style.display = "block";
+        hoverImg.src = img.src;
+    });
+
+    ad.addEventListener("mousemove", (e) => {
+        hoverPreview.style.top = (e.clientY + 15) + "px";
+        hoverPreview.style.left = (e.clientX + 15) + "px";
+    });
+
+    ad.addEventListener("mouseleave", () => {
+        hoverPreview.style.display = "none";
+    });
+
 });
 </script>
 
