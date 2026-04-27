@@ -297,13 +297,10 @@ const previewImg = document.getElementById("preview-img");
 
 document.querySelectorAll(".ad img").forEach(img => {
 
-    img.addEventListener("mouseenter", () => {
+    img.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
         preview.style.display = "flex";
         previewImg.src = img.src;
-});
-
-    img.addEventListener("mouseleave", () => {
-        preview.style.display = "none";
 });
 
 });
