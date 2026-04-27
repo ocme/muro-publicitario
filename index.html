@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B166XHKPTQ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-B166XHKPTQ');
+</script>
+
 <meta charset="UTF-8">
 <title>Muro Publicitario</title>
 
@@ -17,7 +27,7 @@ body{
     color: white;
 }
 
-/* BOTÓN ARRIBA DERECHA */
+/* BOTÓN ARRIBA */
 .top-button{
     position: fixed;
     top: 20px;
@@ -35,15 +45,23 @@ body{
 h1{
     margin-top: 80px;
     color: #00ff88;
-    font-size: 28px;
+    font-size: 26px;
+}
+
+/* SUBTEXTO */
+.subtitle{
+    font-size: 14px;
+    color: #aaa;
+    margin-top: -10px;
 }
 
 /* DESCRIPCIÓN */
 .description{
-    max-width: 600px;
-    margin: auto;
+    max-width: 650px;
+    margin: 15px auto;
     font-size: 14px;
     color: #ccc;
+    line-height: 1.6;
 }
 
 /* GRID */
@@ -86,10 +104,10 @@ h1{
 }
 
 .ad:hover img{
-    transform: scale(2.5);
+    transform: scale(2.2);
     position: absolute;
-    top: -50px;
-    left: -50px;
+    top: -40px;
+    left: -40px;
     z-index: 10;
     border: 2px solid #00ff88;
     background: black;
@@ -99,7 +117,17 @@ h1{
 .available{
     background: #1e1e1e;
     color: #00ff88;
-    cursor: pointer;
+}
+
+/* PRECIO */
+.price{
+    background: #00ff88;
+    color: black;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 </style>
@@ -107,49 +135,45 @@ h1{
 
 <body>
 
-<!-- BOTÓN ARRIBA (YA CON LINK) -->
-<a class="top-button" href="https://wa.me/573000000000" target="_blank">
+<!-- BOTÓN WHATSAPP -->
+<a class="top-button"
+href="https://wa.me/573133896078?text=Hola%2C%20quiero%20comprar%20un%20espacio%20publicitario"
+target="_blank">
 Comprar espacio
 </a>
 
-<h1>💰 EL MURO DIGITAL DE LOS PRIMEROS 💰</h1>
+<h1>📍 Anuncia tu negocio aquí</h1>
+<p class="subtitle">Visibilidad directa • Sin intermediarios • Bajo costo</p>
+
+<div class="price">Espacios desde $5.000 COP</div>
 
 <p class="description">
-Estoy construyendo este muro como un experimento real: demostrar cómo un proyecto desde cero puede crecer usando internet.
+Este muro funciona como un directorio visual donde cada anuncio es clickeable
+y lleva directamente a tu WhatsApp, Instagram o página web.<br><br>
 
-Cada espacio aquí es publicidad para tu negocio y parte del crecimiento de esta idea.
-
-Los primeros en entrar tendrán más visibilidad cuando este muro crezca.
-
-¿Vas a ser de los primeros o de los que llegaron tarde?
+Es una forma simple de obtener visibilidad sin pagar campañas costosas.
+Empieza con bajo costo y prueba resultados.
 </p>
 
 <div class="grid">
 
-<!-- ANUNCIOS -->
-<a href="https://google.com" class="ad">
+<!-- ANUNCIOS (CON TRACKING DE CLICS) -->
+<a href="https://google.com" class="ad"
+onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'google'});">
 <img src="https://via.placeholder.com/100">
 </a>
 
-<a href="https://instagram.com" class="ad">
+<a href="https://instagram.com" class="ad"
+onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'instagram'});">
 <img src="https://via.placeholder.com/100">
 </a>
 
-<a href="https://instagram.com" class="ad">
+<a href="https://instagram.com" class="ad"
+onclick="gtag('event','click_anuncio',{event_category:'ads',event_label:'cliente1'});">
 <img src="https://i.imgur.com/DfUFSE1.jpeg">
 </a>
 
 <!-- ESPACIOS DISPONIBLES -->
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
-<div class="ad available">Disponible</div>
 <div class="ad available">Disponible</div>
 <div class="ad available">Disponible</div>
 <div class="ad available">Disponible</div>
