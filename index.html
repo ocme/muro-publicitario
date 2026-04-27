@@ -17,11 +17,33 @@ body{
     color: white;
 }
 
+/* BOTÓN ARRIBA DERECHA */
+.top-button{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #00ff88;
+    color: black;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
 /* TÍTULO */
 h1{
-    margin: 20px;
+    margin-top: 80px;
     color: #00ff88;
-    font-size: 30px;
+    font-size: 28px;
+}
+
+/* DESCRIPCIÓN */
+.description{
+    max-width: 600px;
+    margin: auto;
+    font-size: 14px;
+    color: #ccc;
 }
 
 /* GRID */
@@ -30,7 +52,7 @@ h1{
     grid-template-columns: repeat(10, 100px);
     gap: 6px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
     overflow: visible;
 }
 
@@ -57,7 +79,7 @@ h1{
     transition: transform 0.3s;
 }
 
-/* EFECTO HOVER */
+/* HOVER */
 .ad:hover{
     transform: scale(1.1);
     z-index: 2;
@@ -80,29 +102,31 @@ h1{
     cursor: pointer;
 }
 
-/* BOTÓN */
-.buy{
-    display: inline-block;
-    margin: 30px;
-    padding: 15px 30px;
-    background: #00ff88;
-    color: black;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
 </style>
 </head>
 
 <body>
 
-<h1>🚀 EL MURO PUBLICITARIO MÁS BARATO DE INTERNET 🚀</h1>
-<p>🔥 Tu negocio aquí desde $5.000 COP – Miles lo verán 🔥</p>
+<!-- BOTÓN ARRIBA (YA CON LINK) -->
+<a class="top-button" href="https://wa.me/573000000000" target="_blank">
+Comprar espacio
+</a>
+
+<h1>💰 EL MURO DIGITAL DE LOS PRIMEROS 💰</h1>
+
+<p class="description">
+Estoy construyendo este muro como un experimento real: demostrar cómo un proyecto desde cero puede crecer usando internet.
+
+Cada espacio aquí es publicidad para tu negocio y parte del crecimiento de esta idea.
+
+Los primeros en entrar tendrán más visibilidad cuando este muro crezca.
+
+¿Vas a ser de los primeros o de los que llegaron tarde?
+</p>
 
 <div class="grid">
 
-<!-- ANUNCIOS EJEMPLO -->
+<!-- ANUNCIOS -->
 <a href="https://google.com" class="ad">
 <img src="https://via.placeholder.com/100">
 </a>
@@ -138,8 +162,6 @@ h1{
 <div class="ad available">Disponible</div>
 
 </div>
-
-<a class="buy" href="#">Comprar espacio</a>
 
 </body>
 </html>
